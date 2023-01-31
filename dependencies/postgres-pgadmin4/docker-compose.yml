@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: carlosdsanjuan@outlook.com
+      PGADMIN_DEFAULT_PASSWORD: C145699S
+    ports:
+      - 5050:80
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
